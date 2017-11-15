@@ -5,6 +5,8 @@
  */
 package View;
 
+import static java.awt.Frame.MAXIMIZED_BOTH;
+
 /**
  *
  * @author Bruna Leonel
@@ -15,6 +17,7 @@ public class TelaGerente extends javax.swing.JFrame {
      * Creates new form TelaGerente
      */
     public TelaGerente() {
+        setExtendedState(MAXIMIZED_BOTH);
         initComponents();
     }
 
@@ -32,6 +35,7 @@ public class TelaGerente extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,13 +55,16 @@ public class TelaGerente extends javax.swing.JFrame {
 
         jMenu1.setText("Funcionários");
 
-        jMenuItem1.setText("Cadastro");
+        jMenuItem1.setText("Manutenção");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
             }
         });
         jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Pesquisar");
+        jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
 
@@ -78,7 +85,10 @@ public class TelaGerente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+        ManutençãoFuncionario CadFunc = new ManutençãoFuncionario();
+        jDesktopPane1.add(CadFunc);
+        CadFunc.setVisible(true);
+        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
@@ -122,5 +132,6 @@ public class TelaGerente extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     // End of variables declaration//GEN-END:variables
 }

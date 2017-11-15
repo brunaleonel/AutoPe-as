@@ -18,10 +18,7 @@ import View.TelaPecas;
     public class main{
         public static void main(String Args[]){
             new TelaLogin().setVisible(true);
-            new TelaAtendente().setVisible(true);
-            new TelaGerente().setVisible(true);
-            new TelaMecanico().setVisible(true);
-            new TelaPecas().setVisible(true);
+            
         }
     }
 
