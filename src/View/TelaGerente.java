@@ -17,7 +17,8 @@ public class TelaGerente extends javax.swing.JFrame {
      * Creates new form TelaGerente
      */
     public TelaGerente() {
-        setExtendedState(MAXIMIZED_BOTH);
+       setExtendedState(MAXIMIZED_BOTH);
+
         initComponents();
     }
 
@@ -35,7 +36,7 @@ public class TelaGerente extends javax.swing.JFrame {
         BtLogout = new javax.swing.JMenu();
         BtSair = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        BtManutenção = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,13 +70,13 @@ public class TelaGerente extends javax.swing.JFrame {
 
         jMenu1.setText("Funcionários");
 
-        jMenuItem1.setText("Manutenção");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        BtManutenção.setText("Manutenção");
+        BtManutenção.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                BtManutençãoActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1.add(BtManutenção);
 
         jMenuBar1.add(jMenu1);
 
@@ -95,12 +96,11 @@ public class TelaGerente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void BtManutençãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtManutençãoActionPerformed
         ManutençãoFuncionario CadFunc = new ManutençãoFuncionario();
         jDesktopPane1.add(CadFunc);
         CadFunc.setVisible(true);
-        
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_BtManutençãoActionPerformed
 
     private void BtLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtLogoutActionPerformed
         
@@ -149,10 +149,10 @@ public class TelaGerente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu BtLogout;
+    private javax.swing.JMenuItem BtManutenção;
     private javax.swing.JMenuItem BtSair;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }

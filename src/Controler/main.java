@@ -5,11 +5,7 @@
  */
 package Controler;
 
-import View.TelaAtendente;
-import View.TelaGerente;
 import View.TelaLogin;
-import View.TelaMecanico;
-import View.TelaPecas;
 
 /**
  *
