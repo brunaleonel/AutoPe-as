@@ -10,5 +10,4 @@ package DAO;
  * @author Bruna Leonel
  */
 public class Dao_Cadastro {
-    
 }

@@ -32,10 +32,10 @@ public class TelaGerente extends javax.swing.JFrame {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
+        BtLogout = new javax.swing.JMenu();
+        BtSair = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,8 +50,22 @@ public class TelaGerente extends javax.swing.JFrame {
             .addGap(0, 370, Short.MAX_VALUE)
         );
 
-        jMenu2.setText("Logout");
-        jMenuBar1.add(jMenu2);
+        BtLogout.setText("Logout");
+        BtLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtLogoutActionPerformed(evt);
+            }
+        });
+
+        BtSair.setText("Sair");
+        BtSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtSairActionPerformed(evt);
+            }
+        });
+        BtLogout.add(BtSair);
+
+        jMenuBar1.add(BtLogout);
 
         jMenu1.setText("Funcionários");
 
@@ -62,9 +76,6 @@ public class TelaGerente extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Pesquisar");
-        jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
 
@@ -90,6 +101,16 @@ public class TelaGerente extends javax.swing.JFrame {
         CadFunc.setVisible(true);
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void BtLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtLogoutActionPerformed
+        
+    }//GEN-LAST:event_BtLogoutActionPerformed
+
+    private void BtSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSairActionPerformed
+        this.dispose();
+        TelaLogin Login = new TelaLogin();
+        Login.setVisible(true);
+    }//GEN-LAST:event_BtSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,11 +148,11 @@ public class TelaGerente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu BtLogout;
+    private javax.swing.JMenuItem BtSair;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     // End of variables declaration//GEN-END:variables
 }

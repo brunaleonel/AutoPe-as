@@ -5,10 +5,5 @@
  */
 package DAO;
 
-/**
- *
- * @author Bruna Leonel
- */
-public class conexao {
-    
+public class conexao{
 }

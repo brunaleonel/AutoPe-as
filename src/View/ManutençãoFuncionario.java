@@ -5,7 +5,10 @@
  */
 package View;
 
-import javax.swing.JComboBox;
+import DAO.Dao_Cadastro;
+import Model.Cadastro;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,12 +16,18 @@ import javax.swing.JOptionPane;
  * @author Bruna Leonel
  */
 public class ManutençãoFuncionario extends javax.swing.JInternalFrame {
-
+    Cadastro cad;
+    Dao_Cadastro Dao_cad;
     /**
      * Creates new form CadastroFuncionario
      */
     public ManutençãoFuncionario() {
+        
+        cad = new Cadastro();
+        Dao_cad = new Dao_Cadastro();
         initComponents();
+        centralizarComponente();
+
     }
 
     /**
@@ -70,7 +79,8 @@ public class ManutençãoFuncionario extends javax.swing.JInternalFrame {
         BtIncluirFunc = new javax.swing.JButton();
         BtPesquisarFunc = new javax.swing.JButton();
         BtLimpar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        BtAlterar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
@@ -85,6 +95,9 @@ public class ManutençãoFuncionario extends javax.swing.JInternalFrame {
 
         jMenu2.setText("jMenu2");
 
+        setClosable(true);
+        setIconifiable(true);
+        setResizable(true);
         setTitle("Manutenção");
 
         jLabel1.setText("Identificador");
@@ -165,13 +178,30 @@ public class ManutençãoFuncionario extends javax.swing.JInternalFrame {
         });
 
         BtPesquisarFunc.setText("Pesquisar");
+        BtPesquisarFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtPesquisarFuncActionPerformed(evt);
+            }
+        });
 
         BtLimpar.setText("Limpar");
-
-        jButton1.setText("Alterar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BtLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtLimparActionPerformed(evt);
+            }
+        });
+
+        BtAlterar.setText("Alterar");
+        BtAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtAlterarActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Sair");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -204,24 +234,18 @@ public class ManutençãoFuncionario extends javax.swing.JInternalFrame {
                                             .addComponent(TxTelefoneFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(10, 10, 10)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel10)
-                                                .addGap(65, 65, 65)
-                                                .addComponent(jLabel11))
-                                            .addComponent(TxCelularFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(TxCelularFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel10))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel11))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(TxIdFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(BtPesquisarFunc)
                                         .addGap(30, 30, 30)
-                                        .addComponent(BtLimpar)))
+                                        .addComponent(BtLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel8)
-                        .addGap(159, 159, 159))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -257,13 +281,20 @@ public class ManutençãoFuncionario extends javax.swing.JInternalFrame {
                             .addComponent(TxSenha))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
+                        .addGap(24, 24, 24)
                         .addComponent(BtIncluirFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75)
+                        .addGap(52, 52, 52)
+                        .addComponent(BtAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)
                         .addComponent(BtSalvarFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel8)
+                        .addGap(159, 159, 159))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,7 +310,7 @@ public class ManutençãoFuncionario extends javax.swing.JInternalFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TxNomeFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel3))
@@ -309,10 +340,11 @@ public class ManutençãoFuncionario extends javax.swing.JInternalFrame {
                     .addComponent(jLabel9)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TxEmailFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxCelularFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxTelefoneFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TxCelularFunc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(TxEmailFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(TxTelefoneFunc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
@@ -327,13 +359,20 @@ public class ManutençãoFuncionario extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtIncluirFunc)
                     .addComponent(BtSalvarFunc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1))
+                    .addComponent(BtAlterar)
+                    .addComponent(jButton2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void centralizarComponente() {
+        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dw = getSize();
+        setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
+    }
+    
     private void TxEndereçoFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxEndereçoFuncActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxEndereçoFuncActionPerformed
@@ -351,7 +390,7 @@ public class ManutençãoFuncionario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxBairroFuncActionPerformed
 
     private void BtSalvarFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSalvarFuncActionPerformed
-        if(TxIdFunc.getText().length()==0 || TxNomeFunc.getText().length()==0 || TxEndereçoFunc.getText().length()==0 || TxComplementoFunc.getText().length()==0 || TxBairroFunc.getText().length()==0 || TxCidadeFunc.getText().length()==0 || TxTelefoneFunc.getText().length()==0 || TxCelularFunc.getText().length()==0 || TxEmailFunc.getText().length()==0 || TxFunção.getText().length()==0 || TxUsuario.getText().length()==0 || TxSenha.getText().length()==0)   {
+        if(TxIdFunc.getText().length()==0 || TxNomeFunc.getText().length()==0 || TxEndereçoFunc.getText().length()==0 || TxBairroFunc.getText().length()==0 || TxCidadeFunc.getText().length()==0 || TxTelefoneFunc.getText().length()==0 || TxCelularFunc.getText().length()==0 || TxEmailFunc.getText().length()==0 || TxFunção.getText().length()==0 || TxUsuario.getText().length()==0 || TxSenha.getText().length()==0)   {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
         } 
         else{
@@ -361,19 +400,70 @@ public class ManutençãoFuncionario extends javax.swing.JInternalFrame {
             TxIdFunc.setText("");
             TxNomeFunc.setText("");
             TxEndereçoFunc.setText("");
+            TxComplementoFunc.setText("");
             TxBairroFunc.setText("");
             TxCidadeFunc.setText("");
             TxTelefoneFunc.setText("");
             TxCelularFunc.setText("");
             TxEmailFunc.setText("");
+            TxFunção.setText("");
+            TxUsuario.setText("");
+            TxSenha.setText("");
             }}    }//GEN-LAST:event_BtSalvarFuncActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void BtAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAlterarActionPerformed
+            if(TxIdFunc.getText().isEmpty())
+           {
+               JOptionPane.showMessageDialog(null, "Digite o id que será alterado");
+           }
+           
+           else
+           {
+               cad = new Cadastro();
+               cad.setId(Integer.parseInt(TxIdFunc.getText()));
+               cad.setNome(TxNomeFunc.getText());
+               cad.setEndereço(TxEndereçoFunc.getText());
+               cad.setComplemento(TxComplementoFunc.getText());
+               cad.setBairro(TxBairroFunc.getText());
+               cad.setTelefone(Integer.parseInt(TxTelefoneFunc.getText()));
+               cad.setCelular(Integer.parseInt(TxCelularFunc.getText()));
+               cad.setEmail(TxEmailFunc.getText());
+               cad.setFunção(TxFunção.getText());
+               cad.setUsuario(TxUsuario.getText());
+               cad.setSenha(TxSenha.getText());
+               
+               JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+           
+           }    }//GEN-LAST:event_BtAlterarActionPerformed
 
+    private void BtPesquisarFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPesquisarFuncActionPerformed
+    }//GEN-LAST:event_BtPesquisarFuncActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void BtLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtLimparActionPerformed
+        int op = JOptionPane.showConfirmDialog(this, "Deseja realmente limpar?", "Confirmação",JOptionPane.YES_NO_OPTION);
+        
+        if(op==0){
+            TxIdFunc.setText("");
+            TxNomeFunc.setText("");
+            TxEndereçoFunc.setText("");
+            TxComplementoFunc.setText("");
+            TxBairroFunc.setText("");
+            TxCidadeFunc.setText("");
+            TxTelefoneFunc.setText("");
+            TxCelularFunc.setText("");
+            TxEmailFunc.setText("");
+            TxFunção.setText("");
+            TxUsuario.setText("");
+            TxSenha.setText("");
+    }//GEN-LAST:event_BtLimparActionPerformed
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtAlterar;
     private javax.swing.JButton BtIncluirFunc;
     private javax.swing.JButton BtLimpar;
     private javax.swing.JButton BtPesquisarFunc;
@@ -395,7 +485,7 @@ public class ManutençãoFuncionario extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
