@@ -22,7 +22,8 @@ public class Cadastro {
     private String função;
     private String usuario;
     private String senha;
-
+    private String tipodevia;
+    private String estado;
     public Cadastro(int aInt, String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -41,6 +42,22 @@ public class Cadastro {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getTipodevia() {
+        return tipodevia;
+    }
+
+    public void setTipodevia(String tipodevia) {
+        this.tipodevia = tipodevia;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public String getNome() {

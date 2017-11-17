@@ -13,7 +13,7 @@ import javax.swing.UIManager;
  * @author Bruna Leonel
  */
 public class TelaLogin extends javax.swing.JFrame {
-
+public String nome;
     /**
      * Creates new form TelaLogin2
      */
@@ -122,22 +122,20 @@ public class TelaLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtEntrarActionPerformed
+             
         if((TxLogin.getText().equals("gerente.c01") && TxSenha.getText().equals("121"))){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
-            TelaGerente telagerente = new TelaGerente();
-            telagerente.setVisible(true);  
+            TelaInicial Tela = new TelaInicial();
+            Tela.setVisible(true);  
             getRootPane().setDefaultButton(BtEntrar);
             this.dispose();
         }
-        
-        if(TxLogin.getText().equals("atendente.c02")&& TxSenha.getText().equals("122")){
+         if(TxLogin.getText().equals("atendente.c02")&& TxSenha.getText().equals("122")){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
-            TelaAtendente telaatendente = new TelaAtendente();
-            telaatendente.setVisible(true);  
             getRootPane().setDefaultButton(BtEntrar);
             this.dispose();
         }
-        
+       
         if(TxLogin.getText().equals("mecanico.c03") && TxSenha.getText().equals("123")){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
             TelaMecanico telamecanico = new TelaMecanico();
@@ -146,7 +144,7 @@ public class TelaLogin extends javax.swing.JFrame {
             this.dispose();
         }
         
-        if(TxLogin.getText().equals("pecas.c04") && TxSenha.getText().equals("124")){
+       else if(TxLogin.getText().equals("pecas.c04") && TxSenha.getText().equals("124")){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
             TelaPecas telapecas = new TelaPecas();
             telapecas.setVisible(true);  
@@ -164,7 +162,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private void TxSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxSenhaActionPerformed
         if((TxLogin.getText().equals("gerente.c01") && TxSenha.getText().equals("121")) || (TxLogin.getText().equals("atendente.c02") && TxSenha.getText().equals("122")) ||(TxLogin.getText().equals("mecanico.c03") && TxSenha.getText().equals("123")) || (TxLogin.getText().equals("pecas.c04") && TxSenha.getText().equals("124"))){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
-            TelaGerente Tela = new TelaGerente();
+            TelaInicial Tela = new TelaInicial();
             Tela.setVisible(true);  
             getRootPane().setDefaultButton(BtEntrar);
             this.dispose();
@@ -227,4 +225,8 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
+
+    boolean setVisible() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
