@@ -112,6 +112,11 @@ public class TelaCarro extends javax.swing.JInternalFrame {
         }
 
         BtPesquisar.setText("Pesquisar");
+        BtPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtPesquisarActionPerformed(evt);
+            }
+        });
 
         try {
             TxCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -120,6 +125,11 @@ public class TelaCarro extends javax.swing.JInternalFrame {
         }
 
         BtLimpar.setText("Limpar");
+        BtLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtLimparActionPerformed(evt);
+            }
+        });
 
         ComboCor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -342,7 +352,8 @@ public class TelaCarro extends javax.swing.JInternalFrame {
         ComboCor.setEditable(true);
         ComboPintura.setEditable(true);
         ComboDetalhe.setEditable(true);
-        
+        BtSalvar.setEnabled(true);
+        BtAlterar.setEnabled(false);
     }//GEN-LAST:event_BtIncluirActionPerformed
 
     private void BtAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAlterarActionPerformed
@@ -418,6 +429,31 @@ public class TelaCarro extends javax.swing.JInternalFrame {
     private void BtSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSairActionPerformed
      this.dispose();
     }//GEN-LAST:event_BtSairActionPerformed
+
+    private void BtPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPesquisarActionPerformed
+        BtLimpar.setEnabled(true);
+    }//GEN-LAST:event_BtPesquisarActionPerformed
+
+    private void BtLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtLimparActionPerformed
+         int op = JOptionPane.showConfirmDialog(this, "Deseja realmente limpar?", "Confirmação",JOptionPane.YES_NO_OPTION);
+        
+        if(op==0){
+            TxId.setText("");
+            TxAnoFabricacao.setText("");
+            TxAnoModelo.setText("");
+            TxChassi.setText("");
+            TxCpf.setText("");
+            TxDataVenda.setText("");
+            TxKm.setText("");
+            TxPlaca.setText("");
+            ComboCor.setSelectedItem("");
+            ComboDetalhe.setSelectedItem("");
+            ComboMarca.setSelectedItem("");
+            ComboModelo.setSelectedItem("");
+            ComboPintura.setSelectedItem("Selecione");
+        }
+            
+    }//GEN-LAST:event_BtLimparActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
