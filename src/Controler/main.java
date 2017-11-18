@@ -5,6 +5,8 @@
  */
 package Controler;
 
+
+import View.TelaInicial;
 import View.TelaLogin;
 
 /**
@@ -13,7 +15,8 @@ import View.TelaLogin;
  */
     public class main{
         public static void main(String Args[]){
-            new TelaLogin().setVisible(true);
+            //new TelaLogin().setVisible(true);
+            new TelaInicial().setVisible(true);
             
         }
     }

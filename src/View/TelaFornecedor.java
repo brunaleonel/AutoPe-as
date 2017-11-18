@@ -20,6 +20,8 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
    Fornecedor For = new Fornecedor();
     public TelaFornecedor() {
         initComponents();
+        botoesinicial();
+        
     }
 
     /**
@@ -61,6 +63,7 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
         TxEmail = new javax.swing.JTextField();
         ComboInscricao = new javax.swing.JComboBox<>();
         TxInscricao = new javax.swing.JTextField();
+        BtCancelar = new javax.swing.JButton();
 
         setTitle("Cadastro de Fornecedores");
 
@@ -145,6 +148,13 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
 
         ComboInscricao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Isento", "Não Isento" }));
 
+        BtCancelar.setText("Cancelar");
+        BtCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -156,27 +166,15 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
                         .addComponent(TxRazaoSocial)
                         .addContainerGap())
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(TxIdFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
-                                .addComponent(TxCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(BtIncluir)
-                                .addGap(18, 18, 18)
-                                .addComponent(BtSalvar)))
+                        .addGap(5, 5, 5)
+                        .addComponent(TxIdFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(TxCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(BtPesquisar)
-                                .addGap(45, 45, 45)
-                                .addComponent(BtLimpar))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addComponent(BtAlterar)
-                                .addGap(42, 42, 42)
-                                .addComponent(BtSair)))
-                        .addGap(65, 65, 65))
+                        .addComponent(BtPesquisar)
+                        .addGap(45, 45, 45)
+                        .addComponent(BtLimpar)
+                        .addGap(71, 71, 71))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -232,7 +230,19 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
                                         .addComponent(ComboInscricao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(14, 14, 14)))
                                 .addComponent(TxInscricao, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(BtIncluir)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtSalvar)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtCancelar)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtAlterar)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtSair)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -283,13 +293,14 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ComboInscricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TxInscricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtSair)
                     .addComponent(BtAlterar)
                     .addComponent(BtSalvar)
-                    .addComponent(BtIncluir))
-                .addGap(24, 24, 24))
+                    .addComponent(BtIncluir)
+                    .addComponent(BtCancelar))
+                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -305,16 +316,47 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void BtPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPesquisarActionPerformed
+    private void botoesinicial()
+    {
+        BtSalvar.setEnabled(false);
+        BtAlterar.setEnabled(false);
+        BtLimpar.setEnabled(false);
+        TxBairro.setEditable(false);
+        TxCep.setEditable(false);
+        TxCidade.setEditable(false);
+        TxEmail.setEditable(false);
+        TxEndereco.setEditable(false);
+        TxIdFornecedor.setEditable(true);
+        TxInscricao.setEditable(false);
+        TxRazaoSocial.setEditable(false);
+        TxTelefone.setEditable(false);
+        TxCnpj.setEditable(true);
+        ComboEstado.setEnabled(false);
+        ComboInscricao.setEnabled(false);
+        BtCancelar.setEnabled(false);
+        TxBairro.setText("");
+        TxCep.setText("");
+        TxCidade.setText("");
+        TxEmail.setText("");
+        TxEndereco.setText("");
+        TxIdFornecedor.setText("");
+        TxInscricao.setText("");
+        TxRazaoSocial.setText("");
+        TxTelefone.setText("");
+        TxCnpj.setText("");
+        BtPesquisar.setEnabled(true);
+        TxIdFornecedor.setEnabled(true);
+        
+    }
+    private void botaopesquisar()
+    {
+        BtAlterar.setEnabled(true);
+        BtCancelar.setEnabled(true);
         BtLimpar.setEnabled(true);
-    }//GEN-LAST:event_BtPesquisarActionPerformed
-
-    private void BtSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSairActionPerformed
-       this.dispose();
-    }//GEN-LAST:event_BtSairActionPerformed
-
-    private void BtIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtIncluirActionPerformed
+    }
+    private void incluir()
+    {
+        TxIdFornecedor.setEnabled(false);
         TxBairro.setEditable(true);
         TxCep.setEditable(true);
         TxCidade.setEditable(true);
@@ -325,49 +367,37 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
         TxRazaoSocial.setEditable(true);
         TxTelefone.setEditable(true);
         TxCnpj.setEditable(true);
-        ComboEstado.setEditable(true);
-        ComboInscricao.setEditable(true);
+        ComboEstado.setEnabled(true);
+        ComboInscricao.setEnabled(true);
         BtSalvar.setEnabled(true);
         BtAlterar.setEnabled(false);
+        BtCancelar.setEnabled(true);
+        BtPesquisar.setEnabled(false);
+    }
+    
+    private void BtPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPesquisarActionPerformed
+        botaopesquisar();
+    }//GEN-LAST:event_BtPesquisarActionPerformed
+
+    private void BtSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSairActionPerformed
+       this.dispose();
+    }//GEN-LAST:event_BtSairActionPerformed
+
+    private void BtIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtIncluirActionPerformed
+        incluir();
     }//GEN-LAST:event_BtIncluirActionPerformed
 
     private void BtSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSalvarActionPerformed
-         if(TxIdFornecedor.getText().length()==0 || TxCnpj.getText().length()==0 || TxBairro.getText().length()==0 || ComboEstado.getSelectedItem().equals("Selecione")|| ComboInscricao.getSelectedItem().equals("Selecione")|| TxCep.getText().length()==0 || TxCidade.getText().length()==0 || TxEmail.getText().length()==0 || TxEndereco.getText().length()==0 || TxInscricao.getText().length()==0 ||TxRazaoSocial.getText().length()==0|| TxTelefone.getText().length()==0)   {
+         if(TxCnpj.getText().length()==0 || TxBairro.getText().length()==0 || ComboEstado.getSelectedItem().equals("Selecione")|| ComboInscricao.getSelectedItem().equals("Selecione")|| TxCep.getText().length()==0 || TxCidade.getText().length()==0 || TxEmail.getText().length()==0 || TxEndereco.getText().length()==0 || TxInscricao.getText().length()==0 ||TxRazaoSocial.getText().length()==0|| TxTelefone.getText().length()==0)   {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
         } 
         else{
             JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
             int op=0;
             if(op==0){
-            TxIdFornecedor.setText("");
-            TxCnpj.setText("");
-            ComboEstado.setSelectedItem("");
-            ComboInscricao.setSelectedItem("");
-            TxBairro.setText("");
-            TxCep.setText("");
-            TxCidade.setText("");
-            TxEmail.setText("");
-            TxEndereco.setText("");
-            TxInscricao.setText("");
-            TxRazaoSocial.setText("");
-            TxTelefone.setText("");
-            BtAlterar.setEnabled(true);
-            BtPesquisar.setEnabled(true);
+            botoesinicial();
+           
 
-            TxCnpj.setEditable(false);
-            ComboEstado.setEditable(false);
-            ComboInscricao.setEditable(false);
-            TxBairro.setEditable(false);
-            TxCep.setEditable(false);
-            TxCidade.setEditable(false);
-            TxEmail.setEditable(false);
-            TxEndereco.setEditable(false);
-            TxIdFornecedor.setEditable(false);
-            TxInscricao.setEditable(false);
-            TxRazaoSocial.setEditable(false);
-            TxTelefone.setEditable(false);
-            BtSalvar.setEnabled(false);
-            BtAlterar.setEnabled(false);
             }}
     }//GEN-LAST:event_BtSalvarActionPerformed
 
@@ -397,9 +427,14 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
            }
     }//GEN-LAST:event_BtAlterarActionPerformed
 
+    private void BtCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCancelarActionPerformed
+       botoesinicial();
+    }//GEN-LAST:event_BtCancelarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtAlterar;
+    private javax.swing.JButton BtCancelar;
     private javax.swing.JButton BtIncluir;
     private javax.swing.JButton BtLimpar;
     private javax.swing.JButton BtPesquisar;
