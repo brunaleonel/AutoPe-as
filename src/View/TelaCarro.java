@@ -5,6 +5,7 @@
  */
 package View;
 
+import Model.Carro;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,6 +17,7 @@ public class TelaCarro extends javax.swing.JInternalFrame {
     /**
      * Creates new form TelaCarro
      */
+    Carro car = new Carro();
     public TelaCarro() {
         initComponents();
     }
@@ -42,20 +44,26 @@ public class TelaCarro extends javax.swing.JInternalFrame {
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        TxModelo = new javax.swing.JTextField();
-        TxMarca = new javax.swing.JTextField();
         TxPlaca = new javax.swing.JTextField();
-        TxCor = new javax.swing.JTextField();
         TxKm = new javax.swing.JTextField();
         TxChassi = new javax.swing.JTextField();
         TxDataVenda = new javax.swing.JFormattedTextField();
         TxAnoFabricacao = new javax.swing.JFormattedTextField();
         TxAnoModelo = new javax.swing.JFormattedTextField();
-        TxPintura = new javax.swing.JTextField();
-        TxDetalEng = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        BtPesquisar = new javax.swing.JButton();
         TxCpf = new javax.swing.JFormattedTextField();
-        jButton3 = new javax.swing.JButton();
+        BtLimpar = new javax.swing.JButton();
+        ComboCor = new javax.swing.JComboBox<>();
+        ComboDetalhe = new javax.swing.JComboBox<>();
+        ComboPintura = new javax.swing.JComboBox<>();
+        ComboModelo = new javax.swing.JComboBox<>();
+        ComboMarca = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        TxId = new javax.swing.JTextField();
+        BtSair = new javax.swing.JButton();
+        BtSalvar = new javax.swing.JButton();
+        BtAlterar = new javax.swing.JButton();
+        BtIncluir = new javax.swing.JButton();
 
         setTitle("Cadastro Automóvel");
 
@@ -103,7 +111,7 @@ public class TelaCarro extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
 
-        jButton1.setText("Pesquisar");
+        BtPesquisar.setText("Pesquisar");
 
         try {
             TxCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -111,72 +119,96 @@ public class TelaCarro extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
 
-        jButton3.setText("Limpar");
+        BtLimpar.setText("Limpar");
+
+        ComboCor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        ComboDetalhe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        ComboPintura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        ComboModelo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        ComboMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel1.setText("ID");
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TxPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel19)
-                        .addComponent(TxModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                        .addComponent(TxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(TxKm, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel24))
-                        .addGap(155, 155, 155))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel14)
-                                .addComponent(TxChassi, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panel1Layout.createSequentialGroup()
-                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxAnoFabricacao, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel20))
-                                .addGap(77, 77, 77)
-                                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel22)
-                                    .addComponent(TxAnoModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap())))
             .addGroup(panel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel23)
-                            .addComponent(TxPintura, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(70, 70, 70)
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addComponent(jLabel23)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(ComboPintura, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17)
-                            .addComponent(TxDetalEng)))
+                            .addComponent(ComboDetalhe, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel17)))
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panel1Layout.createSequentialGroup()
-                                .addComponent(TxCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
-                                .addComponent(jButton1)
-                                .addGap(46, 46, 46)
-                                .addComponent(jButton3))
-                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(TxCor, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(panel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(212, 212, 212)))
-                            .addComponent(jLabel18)
+                                .addComponent(jLabel18)
+                                .addGap(157, 157, 157)
+                                .addComponent(jLabel19))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addComponent(TxPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(22, 22, 22)
+                                .addComponent(ComboCor, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(jLabel24))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(TxKm, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(36, 36, 36)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(TxChassi, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addComponent(ComboModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ComboMarca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addComponent(jLabel20)
+                                .addGap(0, 134, Short.MAX_VALUE))
+                            .addComponent(TxAnoFabricacao))
+                        .addGap(18, 18, 18)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addGap(86, 86, 86))
+                            .addComponent(TxAnoModelo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addComponent(jLabel16)
-                                .addGap(315, 315, 315)
+                                .addGap(305, 305, 305)
                                 .addComponent(jLabel15))
-                            .addComponent(jLabel13))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addGap(120, 120, 120)
+                                .addComponent(jLabel1))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addComponent(TxCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(TxId, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(BtPesquisar)
+                                .addGap(18, 18, 18)
+                                .addComponent(BtLimpar)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -184,26 +216,37 @@ public class TelaCarro extends javax.swing.JInternalFrame {
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel13)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(BtPesquisar)
                     .addComponent(TxCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(BtLimpar)
+                    .addComponent(TxId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
                     .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TxMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ComboModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ComboMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(jLabel18)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(TxPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18)
+                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel24)
+                                .addComponent(jLabel14)))
+                        .addGap(11, 11, 11)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(TxPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ComboCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxKm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TxChassi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(34, 34, 34)
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel21)
@@ -218,56 +261,186 @@ public class TelaCarro extends javax.swing.JInternalFrame {
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel23)
                             .addComponent(jLabel17)))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel24)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel14))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TxCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(TxChassi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(TxKm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TxPintura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TxDetalEng, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
+                    .addComponent(jLabel19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ComboPintura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ComboDetalhe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
+
+        BtSair.setText("Sair");
+        BtSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtSairActionPerformed(evt);
+            }
+        });
+
+        BtSalvar.setText("Salvar");
+        BtSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtSalvarActionPerformed(evt);
+            }
+        });
+
+        BtAlterar.setText("Alterar");
+        BtAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtAlterarActionPerformed(evt);
+            }
+        });
+
+        BtIncluir.setText("Incluir");
+        BtIncluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtIncluirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(BtIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(BtAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(BtSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(BtSair, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtIncluir)
+                    .addComponent(BtAlterar)
+                    .addComponent(BtSalvar)
+                    .addComponent(BtSair))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BtIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtIncluirActionPerformed
+        TxAnoFabricacao.setEditable(true);
+        TxAnoModelo.setEditable(true);
+        TxChassi.setEditable(true);
+        TxCpf.setEditable(true);
+        TxDataVenda.setEditable(true);
+        TxKm.setEditable(true);
+        TxPlaca.setEditable(true);
+        ComboModelo.setEditable(true);
+        ComboMarca.setEditable(true);
+        ComboCor.setEditable(true);
+        ComboPintura.setEditable(true);
+        ComboDetalhe.setEditable(true);
+        
+    }//GEN-LAST:event_BtIncluirActionPerformed
+
+    private void BtAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAlterarActionPerformed
+         if(TxCpf.getText().isEmpty())
+           {
+               JOptionPane.showMessageDialog(null, "Digite o Cpf que será alterado");
+           }
+           
+           else
+           {
+               car = new Carro();
+               car.setId(Integer.parseInt(TxId.getText()));
+               car.setCpf(TxCpf.getText());
+               car.setModelo(ComboModelo.getSelectedItem().toString());
+               car.setMarca(ComboMarca.getSelectedItem().toString());
+               car.setCor(ComboCor.getSelectedItem().toString());
+               car.setAnoFabricacao(TxAnoFabricacao.getText());
+               car.setAnoModelo(TxAnoModelo.getText());
+               car.setChassi(TxChassi.getText());
+               car.setDataVenda(TxDataVenda.getText());
+               car.setPlaca(TxPlaca.getText());
+               car.setKm(TxKm.getText());
+               car.setPintura(ComboPintura.getSelectedItem().toString());
+               car.setDetalhamento((String) ComboDetalhe.getSelectedItem());
+               BtSalvar.setEnabled(false);
+               BtAlterar.setEnabled(false);
+               JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+           
+           } 
+    }//GEN-LAST:event_BtAlterarActionPerformed
+
+    private void BtSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSalvarActionPerformed
+        if(TxId.getText().length()==0 || TxCpf.getText().length()==0 || ComboModelo.getSelectedItem().equals("Selecione") || ComboMarca.getSelectedItem().equals("Selecione")|| ComboCor.getSelectedItem().equals("Selecione")|| TxAnoFabricacao.getText().length()==0 || TxAnoModelo.getText().length()==0 || TxDataVenda.getText().length()==0 || TxChassi.getText().length()==0 || TxPlaca.getText().length()==0 ||ComboPintura.getSelectedItem().equals("Selecione")|| ComboDetalhe.getSelectedItem().equals("Selecione"))   {
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
+        } 
+        else{
+            JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
+            int op=0;
+            if(op==0){
+            TxId.setText("");
+            TxCpf.setText("");
+            ComboModelo.setSelectedItem("");
+            ComboMarca.setSelectedItem("");
+            ComboCor.setSelectedItem("");
+            TxAnoFabricacao.setText("");
+            TxAnoModelo.setText("");
+            TxDataVenda.setText("");
+            TxChassi.setText("");
+            TxPlaca.setText("");
+            ComboPintura.setSelectedItem("");
+            ComboDetalhe.setSelectedItem("");
+            BtAlterar.setEnabled(true);
+            BtPesquisar.setEnabled(true);
+
+            TxCpf.setEditable(false);
+            ComboModelo.setEditable(false);
+            ComboMarca.setEditable(false);
+            ComboCor.setEditable(false);
+            TxAnoFabricacao.setEditable(false);
+            TxAnoModelo.setEditable(false);
+            TxDataVenda.setEditable(false);
+            TxChassi.setEditable(false);
+            TxPlaca.setEditable(false);
+            ComboPintura.setEditable(false);  
+            ComboDetalhe.setEnabled(false);
+            BtSalvar.setEnabled(false);
+            BtAlterar.setEnabled(false);
+            }
+        }
+            
+    }//GEN-LAST:event_BtSalvarActionPerformed
+
+    private void BtSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSairActionPerformed
+     this.dispose();
+    }//GEN-LAST:event_BtSairActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtAlterar;
+    private javax.swing.JButton BtIncluir;
+    private javax.swing.JButton BtLimpar;
+    private javax.swing.JButton BtPesquisar;
+    private javax.swing.JButton BtSair;
+    private javax.swing.JButton BtSalvar;
+    private javax.swing.JComboBox<String> ComboCor;
+    private javax.swing.JComboBox<String> ComboDetalhe;
+    private javax.swing.JComboBox<String> ComboMarca;
+    private javax.swing.JComboBox<String> ComboModelo;
+    private javax.swing.JComboBox<String> ComboPintura;
     private javax.swing.JFormattedTextField TxAnoFabricacao;
     private javax.swing.JFormattedTextField TxAnoModelo;
     private javax.swing.JTextField TxChassi;
-    private javax.swing.JTextField TxCor;
     private javax.swing.JFormattedTextField TxCpf;
     private javax.swing.JFormattedTextField TxDataVenda;
-    private javax.swing.JTextField TxDetalEng;
+    private javax.swing.JTextField TxId;
     private javax.swing.JTextField TxKm;
-    private javax.swing.JTextField TxMarca;
-    private javax.swing.JTextField TxModelo;
-    private javax.swing.JTextField TxPintura;
     private javax.swing.JTextField TxPlaca;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
