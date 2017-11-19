@@ -5,6 +5,8 @@
  */
 package View;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gabriel
@@ -42,9 +44,9 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         jTextField6 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        BtSalvar = new javax.swing.JButton();
+        BtAlterar = new javax.swing.JButton();
+        BtExcluir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton6 = new javax.swing.JButton();
@@ -69,12 +71,25 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         jButton1.setText("Pesquisar");
 
         jButton2.setText("Novo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Salvar");
+        BtSalvar.setText("Salvar");
+        BtSalvar.setEnabled(false);
+        BtSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtSalvarActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Alterar");
+        BtAlterar.setText("Alterar");
+        BtAlterar.setEnabled(false);
 
-        jButton5.setText("Excluir");
+        BtExcluir.setText("Excluir");
+        BtExcluir.setEnabled(false);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,6 +105,11 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jButton6.setText("Pesquisar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Id:");
 
@@ -129,9 +149,9 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                                                             .addComponent(jLabel5)))
                                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                                         .addGap(66, 66, 66)
-                                                        .addComponent(jButton4)
+                                                        .addComponent(BtAlterar)
                                                         .addGap(18, 18, 18)
-                                                        .addComponent(jButton5)))
+                                                        .addComponent(BtExcluir)))
                                                 .addGap(18, 18, 18)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -147,7 +167,7 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton3)))
+                                .addComponent(BtSalvar)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton1)
                             .addComponent(jButton6))))
@@ -183,9 +203,9 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(BtSalvar)
+                    .addComponent(BtAlterar)
+                    .addComponent(BtExcluir))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(17, Short.MAX_VALUE))
@@ -205,13 +225,28 @@ public class CadastroProduto extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      BtSalvar.setEnabled(true);
+      
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void BtSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSalvarActionPerformed
+     
+    JOptionPane.showMessageDialog(null,"Cadastro de produto realizado com susseso!");
+    }//GEN-LAST:event_BtSalvarActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+     BtAlterar.setEnabled(true);
+     BtExcluir.setEnabled(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtAlterar;
+    private javax.swing.JButton BtExcluir;
+    private javax.swing.JButton BtSalvar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
