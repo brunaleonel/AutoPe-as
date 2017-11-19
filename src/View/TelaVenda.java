@@ -289,7 +289,7 @@ public class TelaVenda extends javax.swing.JInternalFrame {
              TxDesconto.setEditable(true);
           }
           else{
-              JOptionPane.showMessageDialog(null,"Senha incorreta ");
+              JOptionPane.showMessageDialog(null,"Senha incorreta! ");
           }
        
           
