@@ -5,6 +5,7 @@
  */
 package View;
 
+import com.sun.glass.events.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
@@ -47,9 +48,9 @@ public String nome;
 
         jLabel3.setText("Senha:");
 
-        TxSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxSenhaActionPerformed(evt);
+        TxSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                TxSenhaKeyPressed(evt);
             }
         });
 
@@ -126,18 +127,21 @@ public String nome;
         if((TxLogin.getText().equals("gerente.c01") && TxSenha.getText().equals("121"))){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
             TelaInicial Tela = new TelaInicial();
-            Tela.MecanicoLogin();
-            Tela.setVisible(true);  
+            Tela.GerenteLogin();
+            Tela.show();
             getRootPane().setDefaultButton(BtEntrar);
             this.dispose();
         }
-         if(TxLogin.getText().equals("atendente.c02")&& TxSenha.getText().equals("122")){
+        else if(TxLogin.getText().equals("atendente.c02")&& TxSenha.getText().equals("122")){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
+            TelaInicial Tela = new TelaInicial();
+            Tela.AtendenteLogin();
+            Tela.setVisible(true);
             getRootPane().setDefaultButton(BtEntrar);
             this.dispose();
         }
        
-        if(TxLogin.getText().equals("mecanico.c03") && TxSenha.getText().equals("123")){
+       else if(TxLogin.getText().equals("mecanico.c03") && TxSenha.getText().equals("123")){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
             TelaMecanico telamecanico = new TelaMecanico();
             telamecanico.setVisible(true);  
@@ -160,26 +164,16 @@ public String nome;
         UIManager.put("Button.defaultButtonFollowsFocus", Boolean.TRUE);
     }//GEN-LAST:event_BtEntrarActionPerformed
 
-    private void TxSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxSenhaActionPerformed
-        if((TxLogin.getText().equals("gerente.c01") && TxSenha.getText().equals("121")) || (TxLogin.getText().equals("atendente.c02") && TxSenha.getText().equals("122")) ||(TxLogin.getText().equals("mecanico.c03") && TxSenha.getText().equals("123")) || (TxLogin.getText().equals("pecas.c04") && TxSenha.getText().equals("124"))){
-            JOptionPane.showMessageDialog(null, "Bem Vindo!");
-            TelaInicial Tela = new TelaInicial();
-            Tela.setVisible(true);  
-            getRootPane().setDefaultButton(BtEntrar);
-            this.dispose();
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Usuário ou senha inválido!");
-        }
-
-        getRootPane().setDefaultButton(BtEntrar);
-        UIManager.put("Button.defaultButtonFollowsFocus", Boolean.TRUE);
-
-    }//GEN-LAST:event_TxSenhaActionPerformed
-
     private void BtCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_BtCancelarActionPerformed
+
+    private void TxSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxSenhaKeyPressed
+        if (evt.getKeyCode()== KeyEvent.VK_ENTER)
+        {
+            getRootPane().setDefaultButton(BtEntrar);
+        }
+    }//GEN-LAST:event_TxSenhaKeyPressed
 
     
 

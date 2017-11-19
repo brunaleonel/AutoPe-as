@@ -7,6 +7,8 @@
 package View;
 
 import static java.awt.Frame.MAXIMIZED_BOTH;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 /**
  *
@@ -17,10 +19,10 @@ public class TelaInicial extends javax.swing.JFrame {
      * Creates new form TelaGerente
      */
     public TelaInicial() {
+      initComponents();
+      
       setExtendedState(MAXIMIZED_BOTH);
-
-        initComponents();
-        AtendenteLogin();
+     
     }
 
     /**
@@ -171,6 +173,19 @@ public class TelaInicial extends javax.swing.JFrame {
         jMenu2.setVisible(false);
         jMenu3.setEnabled(false);
         jMenu3.setVisible(false);
+    }
+    public void GerenteLogin()
+    {
+        jMenu1.setEnabled(true);
+        jMenu1.setVisible(true);
+        jMenu2.setEnabled(true);
+        jMenu2.setVisible(true);
+        jMenu3.setEnabled(true);
+        jMenu3.setVisible(true);
+        jMenu4.setEnabled(true);
+        jMenu4.setVisible(true);
+        jMenu5.setEnabled(true);
+        jMenu5.setVisible(true);
     }
     private void BtManutençãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtManutençãoActionPerformed
         ManutençãoFuncionario CadFunc = new ManutençãoFuncionario();

@@ -77,6 +77,11 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
         });
 
         BtLimpar.setText("Limpar");
+        BtLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtLimparActionPerformed(evt);
+            }
+        });
 
         BtSair.setText("Sair");
         BtSair.addActionListener(new java.awt.event.ActionListener() {
@@ -374,6 +379,14 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
         BtCancelar.setEnabled(true);
         BtPesquisar.setEnabled(false);
     }
+    private void botaosalvar()
+    {
+        BtSalvar.setEnabled(false);
+        BtAlterar.setEnabled(false);
+        BtCancelar.setEnabled(false);
+        BtPesquisar.setEnabled(true);
+        BtIncluir.setEnabled(true);
+    }
     
     private void BtPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPesquisarActionPerformed
         botaopesquisar();
@@ -430,6 +443,13 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
     private void BtCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCancelarActionPerformed
        botoesinicial();
     }//GEN-LAST:event_BtCancelarActionPerformed
+
+    private void BtLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtLimparActionPerformed
+        int op = JOptionPane.showConfirmDialog(this, "Deseja realmente limpar?", "Confirmação",JOptionPane.YES_NO_OPTION);
+        
+        if(op==0){
+            botoesinicial();      }
+    }//GEN-LAST:event_BtLimparActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
