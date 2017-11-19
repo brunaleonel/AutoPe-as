@@ -20,6 +20,7 @@ public class TelaInicial extends javax.swing.JFrame {
       setExtendedState(MAXIMIZED_BOTH);
 
         initComponents();
+        AtendenteLogin();
     }
 
     /**
@@ -151,7 +152,26 @@ public class TelaInicial extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public void MecanicoLogin()
+    {
+        jMenu1.setEnabled(false);
+        jMenu1.setVisible(false);
+        jMenu4.setEnabled(false);
+        jMenu4.setVisible(false);
+        jMenu3.setEnabled(false);
+        jMenu3.setVisible(false);
+        jMenu5.setEnabled(false);
+        jMenu5.setVisible(false);
+    }
+    public void AtendenteLogin()
+    {
+        jMenu1.setEnabled(false);
+        jMenu1.setVisible(false);
+        jMenu2.setEnabled(false);
+        jMenu2.setVisible(false);
+        jMenu3.setEnabled(false);
+        jMenu3.setVisible(false);
+    }
     private void BtManutençãoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtManutençãoActionPerformed
         ManutençãoFuncionario CadFunc = new ManutençãoFuncionario();
         jDesktopPane1.add(CadFunc);

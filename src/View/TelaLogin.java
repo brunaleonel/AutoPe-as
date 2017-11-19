@@ -126,6 +126,7 @@ public String nome;
         if((TxLogin.getText().equals("gerente.c01") && TxSenha.getText().equals("121"))){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
             TelaInicial Tela = new TelaInicial();
+            Tela.MecanicoLogin();
             Tela.setVisible(true);  
             getRootPane().setDefaultButton(BtEntrar);
             this.dispose();
