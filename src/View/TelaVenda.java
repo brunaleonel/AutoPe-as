@@ -102,7 +102,6 @@ public class TelaVenda extends javax.swing.JInternalFrame {
         jLabel8.setText("Desconto");
 
         TxDesconto.setEditable(false);
-        TxDesconto.setText("1000");
 
         BtAlterar.setText("Alterar");
         BtAlterar.addActionListener(new java.awt.event.ActionListener() {
