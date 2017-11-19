@@ -301,7 +301,7 @@ public class TelaVenda extends javax.swing.JInternalFrame {
            JOptionPane.showMessageDialog(null,"Por favor preencha todos os campos");
        }
        else{
-           JOptionPane.showMessageDialog(null,"Venda Realizada com susseso");
+           JOptionPane.showMessageDialog(null,"Venda Realizada com susseso!");
            TxNome.setText("");
            TxCodProduto.setText("");
            TxData.setValue("");
@@ -311,6 +311,7 @@ public class TelaVenda extends javax.swing.JInternalFrame {
            TxTipopagamento.setSelectedItem("Selecione");
            TxValortotal.setText("");
            TxValoritem.setText("");
+           BtAlterar.setEnabled(false);
           
        }
     }//GEN-LAST:event_jButton5ActionPerformed
