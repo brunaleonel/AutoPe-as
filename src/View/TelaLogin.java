@@ -5,9 +5,9 @@
  */
 package View;
 
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
-
 /**
  *
  * @author Bruna Leonel
@@ -132,19 +132,20 @@ public String nome;
         }
          if(TxLogin.getText().equals("atendente.c02")&& TxSenha.getText().equals("122")){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
+            TelaInicial Tela = new TelaInicial();
+            Tela.setVisible(true);
+            
             getRootPane().setDefaultButton(BtEntrar);
             this.dispose();
         }
        
         if(TxLogin.getText().equals("mecanico.c03") && TxSenha.getText().equals("123")){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
-            TelaMecanico telamecanico = new TelaMecanico();
-            telamecanico.setVisible(true);  
             getRootPane().setDefaultButton(BtEntrar);
             this.dispose();
         }
         
-       else if(TxLogin.getText().equals("pecas.c04") && TxSenha.getText().equals("124")){
+       if(TxLogin.getText().equals("pecas.c04") && TxSenha.getText().equals("124")){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
             TelaPecas telapecas = new TelaPecas();
             telapecas.setVisible(true);  
@@ -179,6 +180,11 @@ public String nome;
     private void BtCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_BtCancelarActionPerformed
+
+
+
+    
+
 
     /**
      * @param args the command line arguments

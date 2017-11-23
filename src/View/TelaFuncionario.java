@@ -5,8 +5,8 @@
  */
 package View;
 
-import DAO.Dao_Cadastro;
-import Model.Cadastro;
+import DAO.Dao_CadastroFunc;
+import Model.CadastroUsuário;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
@@ -15,17 +15,17 @@ import javax.swing.JOptionPane;
  *
  * @author Bruna Leonel
  */
-public class ManutençãoFuncionario extends javax.swing.JInternalFrame {
-    Cadastro cad;
-    Dao_Cadastro Dao_cad;
+public class TelaFuncionario extends javax.swing.JInternalFrame {
+    CadastroUsuário cad;
+    Dao_CadastroFunc Dao_cad;
     
     /**
      * Creates new form CadastroFuncionario
      */
-    public ManutençãoFuncionario() {
+    public TelaFuncionario() {
         
-        cad = new Cadastro();
-        Dao_cad = new Dao_Cadastro();
+        cad = new CadastroUsuário();
+        Dao_cad = new Dao_CadastroFunc();
         initComponents();
         
         centralizarComponente();
@@ -140,6 +140,11 @@ public class ManutençãoFuncionario extends javax.swing.JInternalFrame {
         ComboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
         ComboEstado.setToolTipText("");
         ComboEstado.setEnabled(false);
+        ComboEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboEstadoActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Complemento");
 
@@ -301,30 +306,34 @@ public class ManutençãoFuncionario extends javax.swing.JInternalFrame {
                         .addComponent(jLabel8)
                         .addGap(159, 159, 159))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TxFunção, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel12)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxFunção, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(24, 24, 24)
+                                .addComponent(BtIncluirFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(TxUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel13))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel14)
-                                    .addComponent(TxEmailFunc, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE)
-                                    .addComponent(TxSenha)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(TxEmailFunc)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel14)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(TxSenha))
+                                .addContainerGap())
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(BtIncluirFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(52, 52, 52)
-                                .addComponent(BtAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(61, 61, 61)
+                                .addGap(23, 23, 23)
                                 .addComponent(BtSalvarFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)
-                                .addComponent(BtSair, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(47, 47, 47)
+                                .addComponent(BtAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BtSair, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -480,7 +489,7 @@ public class ManutençãoFuncionario extends javax.swing.JInternalFrame {
            
            else
            {
-               cad = new Cadastro();
+               cad = new CadastroUsuário();
                cad.setId(Integer.parseInt(TxIdFunc.getText()));
                cad.setNome(TxNomeFunc.getText());
                cad.setEndereço(TxEndereçoFunc.getText());
@@ -526,6 +535,10 @@ public class ManutençãoFuncionario extends javax.swing.JInternalFrame {
             ComboVia.setSelectedItem("Selecione");
     }//GEN-LAST:event_BtLimparActionPerformed
     }
+    private void ComboEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboEstadoActionPerformed
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtAlterar;

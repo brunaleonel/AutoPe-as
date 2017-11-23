@@ -9,7 +9,7 @@ package Model;
  *
  * @author Bruna Leonel
  */
-public class Cadastro {
+public class CadastroUsuário {
     private int id;
     private String nome;
     private String endereço;
@@ -24,15 +24,15 @@ public class Cadastro {
     private String senha;
     private String tipodevia;
     private String estado;
-    public Cadastro(int aInt, String string) {
+    public CadastroUsuário(int aInt, String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Cadastro(int aInt, String string, String string0) {
+    public CadastroUsuário(int aInt, String string, String string0) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Cadastro(int aInt, String string, String string0, String string1) {
+    public CadastroUsuário(int aInt, String string, String string0, String string1) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -150,10 +150,9 @@ public class Cadastro {
 
    
 
-    public Cadastro() {
+    public CadastroUsuário() {
     }
-    
-    
+      
     
 
 }

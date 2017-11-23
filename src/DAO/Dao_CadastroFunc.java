@@ -9,5 +9,5 @@ package DAO;
  *
  * @author Bruna Leonel
  */
-public class Dao_Cadastro {
+public class Dao_CadastroFunc {
 }
