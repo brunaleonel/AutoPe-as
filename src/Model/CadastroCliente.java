@@ -22,9 +22,15 @@ public class CadastroCliente {
     private String tipodevia;
     private String estado;
     private int CEP;
-    private String rg;
-    private int cpf;
+    private float limite;
 
+    public float getLimite() {
+        return limite;
+    }
+
+    public void setLimite(float limite) {
+        this.limite = limite;
+    }
     public int getId() {
         return id;
     }
@@ -121,20 +127,5 @@ public class CadastroCliente {
         this.CEP = CEP;
     }
 
-    public String getRg() {
-        return rg;
-    }
-
-    public void setRg(String rg) {
-        this.rg = rg;
-    }
-
-    public int getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(int cpf) {
-        this.cpf = cpf;
-    }
     
 }
