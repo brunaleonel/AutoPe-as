@@ -23,6 +23,15 @@ public class Carro {
     private String AnoModelo;
     private String Pintura;
     private String Detalhamento;
+    private String Nome;
+
+    public String getNome() {
+        return Nome;
+    }
+
+    public void setNome(String Nome) {
+        this.Nome = Nome;
+    }
 
     public int getId() {
         return Id;
