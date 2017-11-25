@@ -599,6 +599,11 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         jLabel1.setText("Cód Cliente");
 
         TxIdCli.setEditable(false);
+        TxIdCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxIdCliActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Nome");
 
@@ -851,6 +856,10 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     private void BtSairConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSairConsultaActionPerformed
         this.dispose();
     }//GEN-LAST:event_BtSairConsultaActionPerformed
+
+    private void TxIdCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxIdCliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxIdCliActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtAlterarCli;

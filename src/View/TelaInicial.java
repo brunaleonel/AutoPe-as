@@ -222,7 +222,7 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        TelaCarro Carro = new TelaCarro();
+        TelaCarro2 Carro = new TelaCarro2();
         jDesktopPane1.add(Carro);
         Carro.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
