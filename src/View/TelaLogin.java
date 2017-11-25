@@ -42,6 +42,7 @@ public String nome;
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Identificação");
+        setResizable(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagem/locky_1016554.png"))); // NOI18N
 
@@ -49,6 +50,11 @@ public String nome;
 
         jLabel3.setText("Senha:");
 
+        TxSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxSenhaActionPerformed(evt);
+            }
+        });
         TxSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 TxSenhaKeyPressed(evt);
@@ -133,7 +139,7 @@ public String nome;
             getRootPane().setDefaultButton(BtEntrar);
             this.dispose();
         }
-        if(TxLogin.getText().equals("atendente.c02")&& TxSenha.getText().equals("122")){
+        else if(TxLogin.getText().equals("atendente.c02")&& TxSenha.getText().equals("122")){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
             TelaInicial Tela = new TelaInicial();
             Tela.setVisible(true);
@@ -144,13 +150,13 @@ public String nome;
             this.dispose();
         }
        
-       if(TxLogin.getText().equals("mecanico.c03") && TxSenha.getText().equals("123")){
+        else if(TxLogin.getText().equals("mecanico.c03") && TxSenha.getText().equals("123")){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
             getRootPane().setDefaultButton(BtEntrar);
             this.dispose();
         }
         
-       if(TxLogin.getText().equals("pecas.c04") && TxSenha.getText().equals("124")){
+        else if(TxLogin.getText().equals("pecas.c04") && TxSenha.getText().equals("124")){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
            TelaPeças telapecas = new TelaPeças();
             telapecas.setVisible(true);  
@@ -161,7 +167,7 @@ public String nome;
         else{
             JOptionPane.showMessageDialog(null, "Usuário ou senha inválido!");
         }
-       getRootPane().setDefaultButton(BtEntrar);
+        getRootPane().setDefaultButton(BtEntrar);
         UIManager.put("Button.defaultButtonFollowsFocus", Boolean.TRUE);
     }//GEN-LAST:event_BtEntrarActionPerformed
 
@@ -205,6 +211,47 @@ public String nome;
             getRootPane().setDefaultButton(BtEntrar);
         }
     }//GEN-LAST:event_TxSenhaKeyPressed
+
+    private void TxSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxSenhaActionPerformed
+         if((TxLogin.getText().equals("gerente.c01") && TxSenha.getText().equals("121"))){
+            JOptionPane.showMessageDialog(null, "Bem Vindo!");
+            TelaInicial Tela = new TelaInicial();
+            Tela.GerenteLogin();
+            Tela.show();
+            getRootPane().setDefaultButton(BtEntrar);
+            this.dispose();
+        }
+        else if(TxLogin.getText().equals("atendente.c02")&& TxSenha.getText().equals("122")){
+            JOptionPane.showMessageDialog(null, "Bem Vindo!");
+            TelaInicial Tela = new TelaInicial();
+            Tela.setVisible(true);
+            
+            Tela.AtendenteLogin();
+            Tela.setVisible(true);
+            getRootPane().setDefaultButton(BtEntrar);
+            this.dispose();
+        }
+       
+        else if(TxLogin.getText().equals("mecanico.c03") && TxSenha.getText().equals("123")){
+            JOptionPane.showMessageDialog(null, "Bem Vindo!");
+            getRootPane().setDefaultButton(BtEntrar);
+            this.dispose();
+        }
+        
+        else if(TxLogin.getText().equals("pecas.c04") && TxSenha.getText().equals("124")){
+            JOptionPane.showMessageDialog(null, "Bem Vindo!");
+           TelaPeças telapecas = new TelaPeças();
+            telapecas.setVisible(true);  
+            getRootPane().setDefaultButton(BtEntrar);
+            this.dispose();
+        }
+
+        else{
+            JOptionPane.showMessageDialog(null, "Usuário ou senha inválido!");
+        }
+        getRootPane().setDefaultButton(BtEntrar);
+        UIManager.put("Button.defaultButtonFollowsFocus", Boolean.TRUE);
+    }//GEN-LAST:event_TxSenhaActionPerformed
 
     
 

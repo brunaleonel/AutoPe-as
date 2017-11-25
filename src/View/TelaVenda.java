@@ -270,11 +270,11 @@ public class TelaVenda extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 561, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 591, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
         );
 
         pack();
@@ -301,7 +301,7 @@ public class TelaVenda extends javax.swing.JInternalFrame {
            JOptionPane.showMessageDialog(null,"Por favor preencha todos os campos");
        }
        else{
-           JOptionPane.showMessageDialog(null,"Venda Realizada com susseso!");
+          JOptionPane.showMessageDialog(null,"Venda Realizada com sucesso");
            TxNome.setText("");
            TxCodProduto.setText("");
            TxData.setValue("");
