@@ -129,6 +129,11 @@ public class TelaInicial extends javax.swing.JFrame {
         jMenu2.setText("Oficina");
 
         jMenuItem1.setText("Ordem de Serviço");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem1);
 
         jMenuBar1.add(jMenu2);
@@ -252,7 +257,9 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+        TelaPeças Pecas = new TelaPeças();
+        jDesktopPane1.add(Pecas);
+        Pecas.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
@@ -260,6 +267,12 @@ public class TelaInicial extends javax.swing.JFrame {
         jDesktopPane1.add(Fornecedor);
         Fornecedor.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        TelaOs1 novaOs =  new TelaOs1();
+        jDesktopPane1.add(novaOs);
+        novaOs.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
 
 
