@@ -142,10 +142,8 @@ public String nome;
         else if(TxLogin.getText().equals("atendente.c02")&& TxSenha.getText().equals("122")){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
             TelaInicial Tela = new TelaInicial();
-            Tela.setVisible(true);
-            
             Tela.AtendenteLogin();
-            Tela.setVisible(true);
+            Tela.show();
             getRootPane().setDefaultButton(BtEntrar);
             this.dispose();
         }
@@ -153,14 +151,17 @@ public String nome;
         else if(TxLogin.getText().equals("mecanico.c03") && TxSenha.getText().equals("123")){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
             TelaInicial Tela = new TelaInicial();
+            Tela.MecanicoLogin();
+            Tela.show();
             getRootPane().setDefaultButton(BtEntrar);
             this.dispose();
         }
         
         else if(TxLogin.getText().equals("pecas.c04") && TxSenha.getText().equals("124")){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
-           TelaPeças telapecas = new TelaPeças();
-            telapecas.setVisible(true);  
+           TelaInicial Tela = new TelaInicial();
+            Tela.MecanicoLogin();
+            Tela.show();
             getRootPane().setDefaultButton(BtEntrar);
             this.dispose();
         }
@@ -214,7 +215,8 @@ public String nome;
     }//GEN-LAST:event_TxSenhaKeyPressed
 
     private void TxSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxSenhaActionPerformed
-         if((TxLogin.getText().equals("gerente.c01") && TxSenha.getText().equals("121"))){
+              
+        if((TxLogin.getText().equals("gerente.c01") && TxSenha.getText().equals("121"))){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
             TelaInicial Tela = new TelaInicial();
             Tela.GerenteLogin();
@@ -225,24 +227,26 @@ public String nome;
         else if(TxLogin.getText().equals("atendente.c02")&& TxSenha.getText().equals("122")){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
             TelaInicial Tela = new TelaInicial();
-            Tela.setVisible(true);
-            
             Tela.AtendenteLogin();
-            Tela.setVisible(true);
+            Tela.show();
             getRootPane().setDefaultButton(BtEntrar);
             this.dispose();
         }
        
         else if(TxLogin.getText().equals("mecanico.c03") && TxSenha.getText().equals("123")){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
+            TelaInicial Tela = new TelaInicial();
+            Tela.MecanicoLogin();
+            Tela.show();
             getRootPane().setDefaultButton(BtEntrar);
             this.dispose();
         }
         
         else if(TxLogin.getText().equals("pecas.c04") && TxSenha.getText().equals("124")){
             JOptionPane.showMessageDialog(null, "Bem Vindo!");
-           TelaPeças telapecas = new TelaPeças();
-            telapecas.setVisible(true);  
+           TelaInicial Tela = new TelaInicial();
+            Tela.MecanicoLogin();
+            Tela.show();
             getRootPane().setDefaultButton(BtEntrar);
             this.dispose();
         }

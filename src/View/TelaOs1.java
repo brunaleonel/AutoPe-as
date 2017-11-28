@@ -5,6 +5,10 @@
  */
 package View;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Aleska
@@ -17,6 +21,8 @@ public class TelaOs1 extends javax.swing.JInternalFrame {
     public TelaOs1() {
         initComponents();
         BtPesquisarOs.setEnabled(true);
+        centralizarComponente();
+        BtLimparOS.setEnabled(false);
     }
 
     /**
@@ -56,6 +62,7 @@ public class TelaOs1 extends javax.swing.JInternalFrame {
         jTable1 = new javax.swing.JTable();
         BtAbrirOs = new javax.swing.JButton();
 
+        setClosable(true);
         setTitle("Recepção da Oficina");
 
         jLabel11.setText("Cód Cliente");
@@ -94,6 +101,11 @@ public class TelaOs1 extends javax.swing.JInternalFrame {
         TxCnpjConsultaOs.setToolTipText("");
 
         BtLimparOS.setText("Limpar");
+        BtLimparOS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtLimparOSActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -109,7 +121,7 @@ public class TelaOs1 extends javax.swing.JInternalFrame {
                             .addComponent(TxNomeConsultaOs, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12)
                             .addComponent(jLabel13))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(BtPesquisarConsultaOs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(BtSairConsultaoS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -148,7 +160,7 @@ public class TelaOs1 extends javax.swing.JInternalFrame {
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TxCnpjConsultaOs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Consulta", jPanel8);
@@ -222,7 +234,7 @@ public class TelaOs1 extends javax.swing.JInternalFrame {
                                 .addComponent(TxCpfOs, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(jScrollPane1))
                     .addComponent(BtAbrirOs))
-                .addGap(0, 0, 0))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,9 +259,9 @@ public class TelaOs1 extends javax.swing.JInternalFrame {
                     .addComponent(BtLimparOs))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(BtAbrirOs)
-                .addContainerGap())
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Abertura OS", jPanel1);
@@ -260,20 +272,49 @@ public class TelaOs1 extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public void centralizarComponente() {
+        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dw = getSize();
+        setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
+    } 
+    private void botoesinicial()
+    {
+        BtPesquisarConsultaOs.setEnabled(true);
+        BtPesquisarOs.setEnabled(true);
+        BtSairConsultaoS.setEnabled(true);
+        BtLimparOS.setEnabled(false);
+        BtAbrirOs.setEnabled(true);
+        BtSairConsultaoS.setEnabled(true);
+        TxConsId.setEditable(false);
+        TxNomeConsultaOs.setEditable(false);
+        TxCnpjConsultaOs.setEditable(false);
+        TxCpfConsultaOs.setEditable(false);
+        TxChassisOs.setEditable(false);
+        TxClienteOs.setEditable(false);
+        TxPlacaOs.setEditable(false);
+       
+        TxChassisOs.setText("");
+        TxClienteOs.setText("");
+        TxCnpjConsultaOs.setText("");
+        TxConsId.setText("");
+        TxCpfConsultaOs.setText("");
+        TxCpfOs.setText("");
+        TxNomeConsultaOs.setText("");
+        TxPlacaOs.setText("");
+        
+    }
     private void BtLimparOsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtLimparOsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BtLimparOsActionPerformed
@@ -287,16 +328,31 @@ public class TelaOs1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BtSairConsultaoSActionPerformed
 
     private void BtPesquisarConsultaOsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPesquisarConsultaOsActionPerformed
-        BtLimparOS.setEnabled(true);
+        if (TxConsId.getText().isEmpty() && TxCpfConsultaOs.getText().length() != 15 && TxCnpjConsultaOs.getText().length() != 19 && TxNomeConsultaOs.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Digite algum parâmetro para a pesquisa!");
+            
+        } else {
+            BtLimparOS.setEnabled(true);
+        }
+        
     }//GEN-LAST:event_BtPesquisarConsultaOsActionPerformed
 
     private void BtAbrirOsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAbrirOsActionPerformed
-        this.dispose();
         TelaOS telaos = new TelaOS();
+        jPanel1.removeAll();
         jPanel1.add(telaos);
+        jPanel1.updateUI();
         telaos.setVisible(true);
         
     }//GEN-LAST:event_BtAbrirOsActionPerformed
+
+    private void BtLimparOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtLimparOSActionPerformed
+        int op = JOptionPane.showConfirmDialog(this, "Deseja realmente limpar?", "Confirmação",JOptionPane.YES_NO_OPTION);
+        
+        if(op==0){
+            botoesinicial();
+        }
+    }//GEN-LAST:event_BtLimparOSActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

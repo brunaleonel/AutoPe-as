@@ -27,11 +27,13 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
         CadF = new Dao_CadastroFornecedor();
         initComponents();
         BtBuscarF.setEnabled(false);
+        TxNomeF.setEnabled(true);
         TipodeViaFor.setEnabled(false);
         ComboEstado.setEnabled(false);
         BtSalvar.setEnabled(false);
         BtAlterar.setEnabled(false);
         BtLimpar.setEnabled(false);
+        BtCancelar.setEnabled(false);
         centralizarComponente();
 
     }
@@ -96,6 +98,7 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
         BtSalvar = new javax.swing.JButton();
         BtAlterar = new javax.swing.JButton();
         BtSair = new javax.swing.JButton();
+        BtCancelar = new javax.swing.JButton();
 
         setTitle("Cadastro de Fornecedores");
 
@@ -127,6 +130,11 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
         TxCnpjFor.setToolTipText("");
 
         BtLimpar.setText("Limpar");
+        BtLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtLimparActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -293,13 +301,12 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel13)
                                     .addComponent(TipodeViaFor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel14))
-                                .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addGap(8, 8, 8)
-                                    .addComponent(jLabel16)))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel14))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(jLabel16))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(TxEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -406,6 +413,11 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        TxCnpjF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxCnpjFActionPerformed(evt);
+            }
+        });
 
         jLabel24.setText("Inscrição Estadual");
 
@@ -487,6 +499,13 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
             }
         });
 
+        BtCancelar.setText("Cancelar");
+        BtCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -508,13 +527,15 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(BtIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addGap(30, 30, 30)
                 .addComponent(BtSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(48, 48, 48)
                 .addComponent(BtAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addGap(36, 36, 36)
                 .addComponent(BtSair, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BtCancelar)
+                .addGap(24, 24, 24))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -534,7 +555,8 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
                     .addComponent(BtSalvar)
                     .addComponent(BtIncluir)
                     .addComponent(BtAlterar)
-                    .addComponent(BtSair))
+                    .addComponent(BtSair)
+                    .addComponent(BtCancelar))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -564,7 +586,44 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
         setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
     }
     
-      
+       private void botoesinicial()
+    {
+        BtIncluir.setEnabled(true);
+        BtSalvar.setEnabled(false);
+        BtAlterar.setEnabled(false);
+        BtCancelar.setEnabled(false);
+        BtIncluir.setEnabled(false);
+        TxBairro.setEditable(false);
+        TxCelFor.setEditable(false);
+        TxCep.setEditable(false);
+        TxCidade.setEditable(false);
+        TxCnpjF.setEditable(false);
+        TxCnpjFor.setEditable(true);
+        TxComplementoFor.setEditable(false);
+        TxEmail.setEditable(false);
+        TxEndereco.setEditable(false);
+        TxEstadualF.setEditable(false);      
+        TxRazaoSocial.setEditable(false);
+        TxTelefone.setEditable(false);
+        ComboEstado.setEditable(false);
+        
+       
+        TxBairro.setText("");
+        TxCelFor.setText("");
+        TxCep.setText("");
+        TxCidade.setText("");
+        TxCnpjF.setText("");
+        TxCnpjFor.setText("");
+        TxComplementoFor.setText("");
+        TxEmail.setText(""); 
+        TxEndereco.setText("");
+        TxEstadualF.setText("");
+        TxNomeF.setText("");
+        TxRazaoSocial.setText("");
+        TxTelefone.setText("");   
+        ComboEstado.setSelectedItem(""); 
+        
+    }
     
     private void BtSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSairActionPerformed
        this.dispose();
@@ -588,6 +647,7 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
         BtSalvar.setEnabled(true);
         BtAlterar.setEnabled(false);
         BtIncluir.setEnabled(false);
+        BtCancelar.setEnabled(true);
     }//GEN-LAST:event_BtIncluirActionPerformed
 
     private void BtSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSalvarActionPerformed
@@ -652,22 +712,49 @@ public class TelaFornecedor extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TxBairroActionPerformed
 
-    private void BtPesquisarConsultaFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPesquisarConsultaFActionPerformed
-        if (TxIdF.getText().length() == 1 || TxNomeF.getText().length() == 1 || TxCnpjFor.getText().length() == 1) {
-            this.jTabbedPane1.setSelectedIndex(1);
-        } else {
-            JOptionPane.showMessageDialog(null, "Digite algum parâmetro para a pesquisa!");
-        }
-           BtLimpar.setEnabled(true);    }//GEN-LAST:event_BtPesquisarConsultaFActionPerformed
-
     private void BtSairConsultaFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSairConsultaFActionPerformed
         this.dispose();
     }//GEN-LAST:event_BtSairConsultaFActionPerformed
+
+    private void TxCnpjFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxCnpjFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxCnpjFActionPerformed
+
+    private void BtLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtLimparActionPerformed
+        
+       int op = JOptionPane.showConfirmDialog(this, "Deseja realmente limpar?", "Confirmação",JOptionPane.YES_NO_OPTION);
+        
+        if(op==0){
+            botoesinicial();}
+        BtLimpar.setEnabled(true);
+        
+        TxIdFornecedor.setEnabled(false);
+        TxRazaoSocial.setEnabled(false);
+        TxCnpjFor.setEnabled(false);
+    }//GEN-LAST:event_BtLimparActionPerformed
+
+    private void BtCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCancelarActionPerformed
+        botoesinicial();
+        BtIncluir.setEnabled(true);
+        TipodeViaFor.setEnabled(false);
+        BtBuscarF.setEnabled(false);
+        ComboEstado.setEnabled(false);
+    }//GEN-LAST:event_BtCancelarActionPerformed
+
+    private void BtPesquisarConsultaFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPesquisarConsultaFActionPerformed
+        if (TxIdF.getText().length() == 1 || TxNomeF.getText().length() == 1 || TxCnpjFor.getText().length() == 1) {
+            this.jTabbedPane1.setSelectedIndex(1);
+            BtLimpar.setEnabled(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Digite algum parâmetro para a pesquisa!");
+        }
+    }//GEN-LAST:event_BtPesquisarConsultaFActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtAlterar;
     private javax.swing.JButton BtBuscarF;
+    private javax.swing.JButton BtCancelar;
     private javax.swing.JButton BtIncluir;
     private javax.swing.JButton BtLimpar;
     private javax.swing.JButton BtPesquisarConsultaF;

@@ -5,6 +5,8 @@
  */
 package View;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +20,7 @@ public class TelaPeças extends javax.swing.JInternalFrame {
      */
     public TelaPeças() {
         initComponents();
+        centralizarComponente();
     }
 
     /**
@@ -237,6 +240,11 @@ public class TelaPeças extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void centralizarComponente() {
+        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dw = getSize();
+        setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
+    }
     private void BtPesquisarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPesquisarProdActionPerformed
         BtAlterar.setEnabled(true);
         BtExcluir.setEnabled(true);

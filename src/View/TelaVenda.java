@@ -5,6 +5,8 @@
  */
 package View;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +20,7 @@ public class TelaVenda extends javax.swing.JInternalFrame {
      */
     public TelaVenda() {
         initComponents();
+        centralizarComponente();
     }
 
     /**
@@ -134,6 +137,11 @@ public class TelaVenda extends javax.swing.JInternalFrame {
         });
 
         jButton6.setText("Cancelar Venda");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jLabel11.setText("Tipo de Pagamento");
 
@@ -264,7 +272,7 @@ public class TelaVenda extends javax.swing.JInternalFrame {
                 .addGap(28, 28, 28))
         );
 
-        jTabbedPane1.addTab("tab1", jPanel1);
+        jTabbedPane1.addTab("Venda", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -279,7 +287,11 @@ public class TelaVenda extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+public void centralizarComponente() {
+        Dimension ds = Toolkit.getDefaultToolkit().getScreenSize();
+        Dimension dw = getSize();
+        setLocation((ds.width - dw.width) / 2, (ds.height - dw.height) / 2);
+    }
     private void BtAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAlterarActionPerformed
        Integer op=JOptionPane.showConfirmDialog(null,"Digite a senha do Gerente para alterar o Desconto","Digite a Senha",JOptionPane.OK_CANCEL_OPTION);
        if(op!=2 && op!=-1){
@@ -315,6 +327,10 @@ public class TelaVenda extends javax.swing.JInternalFrame {
           
        }
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

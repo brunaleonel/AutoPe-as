@@ -685,7 +685,12 @@ public class TelaFuncionario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxSenActionPerformed
 
     private void BtPesquisarConsultaFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPesquisarConsultaFActionPerformed
-        BtLimparF.setEnabled(true);
+        if (TxConsultaF.getText().isEmpty() && TxNomeConsultaF.getText().isEmpty()) {
+            
+            JOptionPane.showMessageDialog(null, "Digite algum parâmetro para a pesquisa!");
+        } else {
+            BtLimparF.setEnabled(true);
+        }
     }//GEN-LAST:event_BtPesquisarConsultaFActionPerformed
 
     private void BtLimparFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtLimparFActionPerformed

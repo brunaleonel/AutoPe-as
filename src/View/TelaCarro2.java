@@ -31,6 +31,7 @@ public class TelaCarro2 extends javax.swing.JInternalFrame {
         ComboModelo4.setEnabled(false);
         ComboPintura4.setEnabled(false);
        ComboDetalhe4.setEnabled(false);
+       BtCancelar.setEnabled(false);
         
         centralizarComponente();
 
@@ -102,6 +103,7 @@ public class TelaCarro2 extends javax.swing.JInternalFrame {
         BtAlterar = new javax.swing.JButton();
         BtSalvar = new javax.swing.JButton();
         BtIncluir = new javax.swing.JButton();
+        BtCancelar = new javax.swing.JButton();
 
         jLabel32.setText("Cód Cliente");
 
@@ -481,23 +483,33 @@ public class TelaCarro2 extends javax.swing.JInternalFrame {
             }
         });
 
+        BtCancelar.setText("Cancelar");
+        BtCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(BtIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(BtSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(BtSair, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(BtIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(BtAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtSair, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BtCancelar))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -510,7 +522,8 @@ public class TelaCarro2 extends javax.swing.JInternalFrame {
                     .addComponent(BtSalvar)
                     .addComponent(BtSair)
                     .addComponent(BtIncluir)
-                    .addComponent(BtAlterar))
+                    .addComponent(BtAlterar)
+                    .addComponent(BtCancelar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -535,7 +548,60 @@ public class TelaCarro2 extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+ private void botoesinicial()
+    {
+        BtIncluir.setEnabled(true);
+        BtSalvar.setEnabled(false);
+        BtAlterar.setEnabled(false);
+        BtCancelar.setEnabled(false);
+        BtIncluir.setEnabled(false);
+        TxAnoFabricação4.setEditable(false);
+        TxAnoModelo4.setEditable(false);
+        TxChassis4.setEditable(false);
+        TxCnpjCarro.setEditable(false);
+        TxConsultaCarro.setEditable(false);
+        TxCpfCarro.setEditable(true);
+        TxDataVenda4.setEditable(false);
+        TxIdC.setEditable(false);
+        TxKm4.setEditable(false);
+        TxNomeC.setEditable(false);
+        TxNomeCarro.setEditable(false);        
+        TxPlaca4.setEditable(false);
+        ComboCombustivel4.setEditable(false);
+        ComboCor4.setEditable(false);
+        ComboDetalhe4.setEditable(false);
+        ComboModelo4.setEditable(false);
+        ComboMarca4.setEditable(false);
+        ComboPintura4.setEditable(false);
+        
+        
+        ComboCombustivel4.setEnabled(false);
+        ComboCor4.setEnabled(false);
+        ComboDetalhe4.setEnabled(false);
+        ComboModelo4.setEnabled(false);
+        ComboMarca4.setEnabled(false);
+        ComboPintura4.setEnabled(false);
+       
+        TxAnoFabricação4.setText("");
+        TxAnoModelo4.setText("");
+        TxChassis4.setText("");
+        TxCnpjCarro.setText("");
+        TxConsultaCarro.setText("");
+        TxCpfCarro.setText("");
+        TxDataVenda4.setText("");
+        TxIdC.setText(""); 
+        TxKm4.setText("");
+        TxNomeC.setText("");
+        TxNomeCarro.setText("");
+        TxPlaca4.setText("");
+        ComboCombustivel4.setSelectedItem("");   
+        ComboCor4.setSelectedItem(""); 
+        ComboDetalhe4.setSelectedItem(""); 
+        ComboModelo4.setSelectedItem(""); 
+        ComboMarca4.setSelectedItem(""); 
+        ComboPintura4.setSelectedItem(""); 
+    }
+ 
     private void BtPesquisarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPesquisarCActionPerformed
         if(TxConsultaCarro.getText().length()==1 || TxNomeCarro.getText().length()==1 || TxCpfCarro.getText().length()==1 || TxCnpjCarro.getText().length()==1){
            this.jTabbedPane1.setSelectedIndex(1);
@@ -581,6 +647,7 @@ public class TelaCarro2 extends javax.swing.JInternalFrame {
         BtSalvar.setEnabled(true);
         BtAlterar.setEnabled(false);
         BtIncluir.setEnabled(false);
+        BtCancelar.setEnabled(true);
     }//GEN-LAST:event_BtIncluirActionPerformed
 
     private void BtSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSalvarActionPerformed
@@ -665,9 +732,15 @@ public class TelaCarro2 extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_TxChassis4ActionPerformed
 
+    private void BtCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCancelarActionPerformed
+      botoesinicial();
+      BtIncluir.setEnabled(true);
+    }//GEN-LAST:event_BtCancelarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtAlterar;
+    private javax.swing.JButton BtCancelar;
     private javax.swing.JButton BtIncluir;
     private javax.swing.JButton BtLimparC;
     private javax.swing.JButton BtPesquisarC;

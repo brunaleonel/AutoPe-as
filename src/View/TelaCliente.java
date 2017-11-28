@@ -32,8 +32,13 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         BtBuscarCli.setEnabled(false);
         BtLimparCli.setEnabled(false);
         TxTipoPessoa.setEnabled(false);
-        PnlPj.setVisible(false);
-        PnlPf.setVisible(false);
+        PnlPj.setVisible(true);
+        TxOrgao.setEditable(false);
+        TxCnpj.setEditable(false);
+        TxIdEstadual.setEditable(false);
+        PnlPf.setVisible(true);
+        BtAlterarCli.setEnabled(false);
+        jButton5.setEnabled(false);
         centralizarComponente();
 
     }
@@ -161,6 +166,11 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         TxCnpjConsulta.setToolTipText("");
 
         BtLimparCli.setText("Limpar");
+        BtLimparCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtLimparCliActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -721,7 +731,46 @@ public class TelaCliente extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+        private void botoesinicial()
+    {
+        BtAlterarCli.setEnabled(false);
+        BtIncluirCli1.setEnabled(true);
+        BtLimparCli.setEnabled(false);
+        BtPesquisarConsulta.setEnabled(true);
+        BtSairConsulta.setEnabled(true);
+        BtSalvarCli.setEnabled(false);
+        TxBairroCli.setEditable(false);
+        TxCelCli.setEditable(false);
+        TxCidadeCli.setEditable(false);
+        TxCnpj.setEditable(false);
+        TxEmailCli.setEditable(false);
+        TxComplementoCli.setEditable(true);
+        TxConsultaId.setEditable(false);
+        TxCpfCli.setEditable(false);
+        TxEndereçoCli.setEditable(false);
+        TxDataNascimento.setEditable(false);
+        TxEstadoCli.setEditable(false);
+        TxIdCli.setEditable(false);
+        TxIdEstadual.setEditable(false);
+        TxLimiteCli.setEditable(false);
+                
+       
+        TxBairroCli.setText("");
+        TxCelCli.setText("");
+        TxCidadeCli.setText("");
+        TxCnpj.setText("");
+        TxEmailCli.setText("");
+        TxComplementoCli.setText("");
+        TxConsultaId.setText("");
+        TxCpfCli.setText(""); 
+        TxEndereçoCli.setText("");
+        TxDataNascimento.setText("");
+        TxEstadoCli.setSelectedItem("");
+        TxIdCli.setText("");
+        TxIdEstadual.setText("");   
+        TxLimiteCli.setText(""); 
+        
+    }
     private void TxBairroCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxBairroCliActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxBairroCliActionPerformed
@@ -790,7 +839,17 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         TxTipoPessoa.setEnabled(true);
         TxLimiteCli.setEditable(true);
         BtSalvarCli.setEnabled(true);
-       
+        TxCpfCli.setEnabled(true);
+        TxCpfCli.setEditable(true);
+        TxRGCli.setEnabled(true);
+        TxRGCli.setEditable(true);
+        TxDataNascimento.setEnabled(true);
+        TxDataNascimento.setEditable(true);
+        BtAlterarCli.setEnabled(false);
+        jButton5.setEnabled(false);
+        TxOrgao.setEditable(true);
+        TxCnpj.setEditable(true);
+        TxIdEstadual.setEditable(true);
     }//GEN-LAST:event_BtIncluirCli1ActionPerformed
 
     private void BtAlterarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAlterarCliActionPerformed
@@ -817,7 +876,14 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TipodeViaCliActionPerformed
 
     private void BtPesquisarConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPesquisarConsultaActionPerformed
-        BtLimparCli.setEnabled(true);
+        if(TxConsultaId.getText().isEmpty() && TxNomeConsulta.getText().isEmpty() && TxCpfConsulta.getText().length() != 15 && TxCnpjConsulta.getText().length() != 19 )
+        {
+            JOptionPane.showMessageDialog(null, "Passe ao menos um parametro!");
+        }
+        else{
+            BtLimparCli.setEnabled(true);
+        }
+        
     }//GEN-LAST:event_BtPesquisarConsultaActionPerformed
 
     private void jTabbedPane2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTabbedPane2AncestorAdded
@@ -853,6 +919,19 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     private void TxIdCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxIdCliActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxIdCliActionPerformed
+
+    private void BtLimparCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtLimparCliActionPerformed
+        int op = JOptionPane.showConfirmDialog(this, "Deseja realmente limpar?", "Confirmação",JOptionPane.YES_NO_OPTION);
+        
+        if(op==0){
+            botoesinicial();
+        }
+        BtLimparCli.setEnabled(true);
+        TxIdCli.setEditable(true);
+        TxNomeCli.setEditable(true);
+        TxCnpjConsulta.setEditable(true);
+        TxCpfConsulta.setEditable(true);
+    }//GEN-LAST:event_BtLimparCliActionPerformed
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtAlterarCli;
